@@ -22,6 +22,7 @@
 package com.parse;
 
 import android.database.DataSetObserver;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -559,12 +560,14 @@ public class ParseQueryAdapterTest extends BaseActivityInstrumentationTestCase2<
     adapter.addOnQueryLoadListener(new OnQueryLoadListener<Thing>() {
       @Override
       public void onLoading() {
+        Log.w("HAHA", "onLoading");
         assertEquals(0, adapter.getCount());
         assertTrue(flag.get());
       }
 
       @Override
       public void onLoaded(List<Thing> objects, Exception e) {
+        Log.w("HAHA", "onLoaded");
         assertEquals(TOTAL_THINGS, adapter.getCount());
         done.release();
       }

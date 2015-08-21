@@ -25,6 +25,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -651,8 +652,11 @@ public class ParseQueryAdapter<T extends ParseObject> extends BaseAdapter {
       return;
     }
     this.autoload = autoload;
+    Log.w("HAHA", "before load");
     if (this.autoload && !this.dataSetObservers.isEmpty() && this.objects.isEmpty()) {
+      Log.w("HAHA", "start load");
       this.loadObjects();
+      Log.w("HAHA", "end load");
     }
   }
 
